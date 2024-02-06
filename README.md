@@ -1,3 +1,12 @@
+
+
+
+
+1. Para instalar las dependencias de este proyecto ejecutar npm install
+2. Para ejecutar el proyecto lanzar npm run dev
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

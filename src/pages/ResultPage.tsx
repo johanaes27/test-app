@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
 
+// Interfaz para el resultado del test
 interface Result {
-  score: number;
-  answers?: {
-    question: string;
-    correctAnswer: string;
-    isCorrect: boolean;
+  score: number; // Puntaje obtenido
+  answers?: { // Array de respuestas del usuario
+    question: string; // Pregunta
+    correctAnswer: string; // Respuesta correcta
+    isCorrect: boolean; // Indica si la respuesta del usuario fue correcta
   }[];
 }
+
+// Estilos para los mensajes de éxito y error
 const styleSuccess: React.CSSProperties = {
   color: "green",
 };
@@ -16,8 +19,11 @@ const styleError: React.CSSProperties = {
   color: "red",
 };
 
+// Componente para la página de resultados del test
 export const ResultPage: React.FC<{ result: Result }> = ({ result }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook para manejar la navegación entre páginas
+
+  // Icono de verificación para respuestas correctas
   const IconCheck = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -32,6 +38,7 @@ export const ResultPage: React.FC<{ result: Result }> = ({ result }) => {
     </svg>
   );
 
+  // Icono de error para respuestas incorrectas
   const iconError = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -55,25 +62,27 @@ export const ResultPage: React.FC<{ result: Result }> = ({ result }) => {
         </h6>
         <hr />
         <form>
+          {/* Mapear las respuestas del usuario */}
           {result.answers?.map((item, index) => (
             <div key={index} className="mb-4">
               <h5 className="text-dark">
-                {item.question} {item.isCorrect ? IconCheck : iconError}
+                {item.question} {item.isCorrect ? IconCheck : iconError} {/* Mostrar icono de verificación o error según la respuesta */}
               </h5>
               <span className="bi bi-check"></span>
               <p style={item.isCorrect ? styleSuccess : styleError}>
-                Respuesta correcta: {item.correctAnswer}
+                Respuesta correcta: {item.correctAnswer} {/* Mostrar la respuesta correcta */}
               </p>
             </div>
           ))}
         </form>
 
+        {/* Botón para volver a realizar la prueba */}
         <button 
-        type="submit" 
-        className="btn btn-primary" 
-        onClick={() => {
-          navigate("/test");
-        }}
+          type="submit" 
+          className="btn btn-primary" 
+          onClick={() => {
+            navigate("/test"); // Redirigir al usuario a la página de test
+          }}
         >
           Volver a realizar la prueba
         </button>
