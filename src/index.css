@@ -1,0 +1,22 @@
+.background-orange {
+    background-color: #FFA500; /* Naranja */
+  }
+  
+  .title-text {
+    color: #000; /* Negro */
+    font-family: 'Comic Sans MS', cursive; /* Fuente estilo comic */
+  }
+  
+  .text-dark {
+    color: hsl(0, 0%, 0%); /* Negro */
+  }
+  
+  .input-dark {
+    color: #000 !important; 
+  }
+
+  .unanswered-question {
+    border: 2px solid red;
+    padding: 8px;
+  }
+  
